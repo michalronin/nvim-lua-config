@@ -46,7 +46,7 @@ local kind_icons = {
 cmp.setup {
   snippet = {
     expand = function(args)
-      luasnip.lsp_expand(args.body) -- For `luasnip` users.
+      snip.lsp_expand(args.body) -- For `luasnip` users.
     end,
   },
   mapping = {
@@ -66,10 +66,10 @@ cmp.setup {
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif luasnip.expandable() then
-        luasnip.expand()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
+      elseif snip.expandable() then
+        snip.expand()
+      elseif snip.expand_or_jumpable() then
+        snip.expand_or_jump()
       elseif check_backspace() then
         fallback()
       else
@@ -107,6 +107,7 @@ cmp.setup {
     end,
   },
   sources = {
+    { name  = "nvim_lsp" },
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
