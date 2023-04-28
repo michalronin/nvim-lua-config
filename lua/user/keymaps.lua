@@ -38,3 +38,7 @@ keymap("v", ">", ">gv", opts)
 keymap("v", "<A-j>", ":m .+1<cr>==", opts)
 keymap("v", "<A-k>", ":m .-2<cr>==", opts)
 keymap("v", "p", "_dP", opts)
+
+-- Telescope
+keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
+keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
